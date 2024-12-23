@@ -31,6 +31,4 @@ for_data = [
 
 @pytest.mark.parametrize('data', for_data)
 def test_post_v1_account_negative(data, client):
-    print(data)
     response = client.register_user(data)
-    print(response.text)

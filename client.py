@@ -12,4 +12,14 @@ class Client:
     def register_user(self, json):
         path = self.host + "/v1/account"
         response = requests.request(method="POST", url=path, headers=self.headers, json=json)
+        log = f"""
+        REQUEST:
+            URL: {response.request.url}
+            METHOD: {response.request.method}
+            DATA: {response.request.body}
+        RESPONSE:
+            STATUS_CODE: {response.status_code}
+            CONTENT: {response.json()}
+        """
+        print(log)
         return response
